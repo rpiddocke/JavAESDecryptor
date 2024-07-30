@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Base64;
 import javax.crypto.Cipher;
@@ -40,13 +41,13 @@ public class AESEncryptionApp {
         try {
             // Hash the encryption key using SHA-256
             MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
-            byte[] keyHash = sha256.digest(lpwszKey.getBytes("UTF-16LE"));
+            byte[] keyHash = sha256.digest(lpwszKey.getBytes(StandardCharsets.UTF_16LE));
 
             // Encrypt lpwszSource with AES in ECB mode
             Cipher cipher = Cipher.getInstance("AES/ECB/NoPadding");
             SecretKeySpec secretKeySpec = new SecretKeySpec(keyHash, "AES");
             cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
-            byte[] sourceBytes = lpwszSource.getBytes("UTF-16LE");
+            byte[] sourceBytes = lpwszSource.getBytes(StandardCharsets.UTF_16LE);
             byte[] encrypted = cipher.doFinal(sourceBytes);
 
             // Base64 encode the encrypted data
@@ -60,7 +61,7 @@ public class AESEncryptionApp {
         try {
             // Hash the encryption key using SHA-256
             MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
-            byte[] keyHash = sha256.digest(lpwszKey.getBytes("UTF-16LE"));
+            byte[] keyHash = sha256.digest(lpwszKey.getBytes(StandardCharsets.UTF_16LE));
 
             // Base64 decode the encrypted data
             byte[] encryptedBytes = Base64.getDecoder().decode(lpwszSource);
@@ -72,7 +73,7 @@ public class AESEncryptionApp {
             byte[] decrypted = cipher.doFinal(encryptedBytes);
 
             // Convert decrypted bytes back to string
-            return new String(decrypted, "UTF-16LE").trim();
+            return new String(decrypted, StandardCharsets.UTF_16LE).trim();
         } catch (Exception e) {
             return null;
         }
