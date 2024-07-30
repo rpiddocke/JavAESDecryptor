@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="AESDecryptor" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="AESEncryptionApp" />
+    <module name="AESDecryptor" />
+    <option name="PROGRAM_PARAMETERS" value="decrypt 4aQzMM6JfV//hhHiwrXAzCkXIoPwHNLWtVFWV3AEjlE= Key" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../Documents/GitHub/Java/AESDecryptor" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
