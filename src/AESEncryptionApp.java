@@ -4,8 +4,6 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 public class AESEncryptionApp {
-    private static final int CRYPT_OK = 0;
-    private static final int CRYPT_ERROR = -1;
 
     public static void main(String[] args) {
         if (args.length != 3) {
